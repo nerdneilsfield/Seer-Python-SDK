@@ -4,7 +4,7 @@ import logging
 import json
 
 
-HEADER_STRUCT = ">bbhih"
+HEADER_STRUCT = ">bbhih" #big-endian 
 REVERSED = struct.pack('b'*6, *([0]*6))
 
 
@@ -15,7 +15,7 @@ class SeerData(object):
         self.number = 0
         self.data_length = 0
         self.api_type = 0
-        self.data = 0
+        self.data = {}
         self.empty = True
 
     def from_bytes(self, bytes):
@@ -26,7 +26,9 @@ class SeerData(object):
             HEADER_STRUCT, bytes[:10])
 
         # Unpack data
-        self.data = json.loads(bytes[16:].decode('utf-8'))
+        data = bytes[16:].decode('utf-8')
+        # print(data)
+        self.data = json.loads(data)
         self.bytes_list = [bytes[:10], bytes[10:16], bytes[16:]]
         self.empty = False
 

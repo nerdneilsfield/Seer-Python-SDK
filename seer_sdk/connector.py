@@ -30,6 +30,7 @@ class Connector(object):
 
     def close(self):
         self._socket.close()
+        self.is_connected = False
         logging.info("the socket is closed")
 
     def send(self, api_type, data=None):
@@ -51,8 +52,13 @@ class Connector(object):
                     api_type, self.ip_address, self.port, str(e)))
             else:
                 try:
-                    received_bytes = self._socket.recv(1024 * 1204)
-                except:
+                    received_bytes = self._socket.recv(8096)
+                    # print(received_bytes[16])
+                    # print(received_bytes[-1])
+                    # print(len(received_bytes))
+                    while(received_bytes[16] ==123 and received_bytes[-1] != 125):
+                        received_bytes += self._socket.recv(1024 * 1024)
+                except Exception as e:
                     logging.error("error to receive callback data from %s:%s, because: %s" % (
                         self.ip_address, self.port, str(e)))
                 else:

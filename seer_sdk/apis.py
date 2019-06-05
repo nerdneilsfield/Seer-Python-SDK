@@ -25,12 +25,12 @@ STATUS = {
     1111: 'robot_status_init_req',  # 查询机器人的初始化状态
     1300: 'robot_status_map_req',  # 查询机器人载入的地图以及储存的地图
     1400: 'robot_status_params_req',  # 查询机器人的参数
-    1500: 'robot_status_model_req',  # 查询机器人模型
+    # 1500: 'robot_status_model_req',  # 查询机器人模型
     1013: 'robot_status_io_req',  # 查询机器人IO数据
     1103: 'robot_status_all4_req',  # 查询批量数据4
     1301: 'robot_status_station',  # 查询机器人当前载入地图中的站点信息
     1016: 'robot_status_ultrasonlc_req',  # 查询机器人的超声传感器数据
-    1510: 'robot_status_calib_req',  # 查询机器人当前的标定参数
+    # 1510: 'robot_status_calib_req',  # 查询机器人当前的标定参数
     1018: 'robot_status_polygon_req',  # 查询机器人各种多边形数据
     1019: 'robot_status_obstacle_req',  # 查询机器人的动态障碍物信息
     1026: 'robot_status_tasklist_req',  # 查询任务链状态
@@ -63,12 +63,13 @@ R_STATUS = {
     'robot_status_init_req': 1111,  # 查询机器人的初始化状态
     'robot_status_map_req': 1300,  # 查询机器人载入的地图以及储存的地图
     'robot_status_params_req': 1400,  # 查询机器人的参数
-    'robot_status_model_req': 1500,  # 查询机器人模型
+    # 'robot_status_model_req': 1500,  # 查询机器人模型
     'robot_status_io_req': 1013,  # 查询机器人IO数据
     'robot_status_all4_req': 1103,  # 查询批量数据4
+    'robot_status_imu_req': 1014,
     'robot_status_station': 1301,  # 查询机器人当前载入地图中的站点信息
     'robot_status_ultrasonlc_req': 1016,  # 查询机器人的超声传感器数据
-    'robot_status_calib_req': 1510,  # 查询机器人当前的标定参数
+    # 'robot_status_calib_req': 1510,  # 查询机器人当前的标定参数
     'robot_status_polygon_req': 1018,  # 查询机器人各种多边形数据
     'robot_status_obstacle_req': 1019,  # 查询机器人的动态障碍物信息
     'robot_status_tasklist_req': 1026,  # 查询任务链状态
